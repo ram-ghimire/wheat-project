@@ -51,5 +51,18 @@ summarise(clean_combined_data,
          min_yield=min(plot_yield),
          mean_yield=mean(plot_yield)
           )
+data_by_line <- group_by(clean_combined_data,line)
 
-             
+data_by_yield <- group_by(clean_combined_data,plot_yield)
+
+arrange(clean_combined_data,flowering_das)
+
+arrange(clean_combined_data,desc(flowering_das))
+
+summarise(clean_combined_data, se_yield = sd(plot_yield) / sqrt(n()))
+
+filter(clean_combined_data,plot_yield>=641)
+
+glimpse(clean_combined_data)             
+
+summary(clean_combined_data)
