@@ -39,7 +39,7 @@ clean_combined_data %>%
   filter(oct_av_canopy_score<=2,peduncle_length>=18)
  
 ggplot(data = clean_combined_data)+
-  geom_point(mapping = aes(x=flowering_das,y=anthesis_biomass,colour="red"))
+  geom_point(mapping = aes(x=flowering_das,y=anthesis_biomass,size=rep))
 
 ggplot(data = clean_combined_data)+
   geom_point(mapping = aes(x=flowering_das,y=plot_yield,colour="red"))
@@ -66,3 +66,28 @@ filter(clean_combined_data,plot_yield>=641)
 glimpse(clean_combined_data)             
 
 summary(clean_combined_data)
+
+library(readr)
+clean_combined_data <- read_csv("data/clean_combined_data.csv", 
+                                col_types = cols(flowering_das = col_integer(), 
+                                                 rep = col_integer()))
+View(clean_combined_data)
+
+ggplot(data = cleand_combined_data)+
+  geom_smooth(mapping = aes(x=plant_ht,y=anthesis_biomass))+
+scale_x_log10()
+  
+ggplot(data = cleand_combined_data)+
+  geom_smooth(mapping = aes(x=anthesis_biomass,y=plot_yield))+
+scale_x_log10()
+
+ggplot(data = cleand_combined_data)+
+  geom_smooth(mapping = aes(x=oct_av_canopy_score,y=anthesis_biomass))+
+scale_x_log10()
+
+
+
+
+                                                  
+                                                  
+
